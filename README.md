@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paws on the Go Pet Care</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Comic Sans MS', cursive, sans-serif; }
+    body { background: #fffaf0; color: #333; line-height: 1.6; }
+
+    /* Paw background pattern */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('https://i.imgur.com/3KXrSkL.png'); /* subtle paw print pattern */
+      background-repeat: repeat;
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      background: #ff9f80;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 5px solid #ff6f61;
+    }
+    header h1 { font-size: 3rem; }
+    header p { font-size: 1.3rem; margin-top: 10px; }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ffcba4;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: #333;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    nav a:hover { background: #ff9f80; color: white; border-radius: 10px; }
+
+    /* Section styling */
+    .section { padding: 60px 20px; text-align: center; }
+    .section h2 { font-size: 2.5rem; margin-bottom: 20px; color: #ff6f61; }
+    .section p { max-width: 650px; margin: 0 auto 25px; }
+
+    /* Services grid */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    .service-card {
+      background: #fff0e5;
+      padding: 25px;
+      border-radius: 20px;
+      width: 260px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      position: relative;
+    }
+    .service-card::after {
+      content: "🐾";
+      font-size: 2rem;
+      position: absolute;
+      top: -10px; right: -10px;
+      opacity: 0.3;
+    }
+    .service-card:hover { transform: translateY(-7px); }
+
+    /* Contact form */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+      background: #fff0e5;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    form label { display: block; margin-top: 12px; font-weight: bold; }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 10px;
+      border: 1px solid #ffb380;
+    }
+    form button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      background: #ff6f61;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover { background: #ff3b2f; }
+
+    /* Footer */
+    footer {
+      background: #ffcba4;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 40px;
+      border-top: 5px solid #ff6f61;
+    }
+
+    /* Cute animation for headers */
+    h1, h2 {
+      animation: bounce 1.5s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .services { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Paws on the Go Pet Care</h1>
+    <p>Love and care for your pets, wherever you go! 🐶🐾</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>We provide loving, reliable care for your furry friends when life gets busy. Each pet is treated like part of the family with lots of cuddles, play, and attention!</p>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Dog Walking</h3>
+        <p>Daily walks full of fun, exercise, and tail wags to keep your dog happy and healthy.</p>
+      </div>
+      <div class="service-card">
+        <h3>Pet Sitting</h3>
+        <p>In-home care to ensure your pets are safe, loved, and comfortable while you’re away.</p>
+      </div>
+      <div class="service-card">
+        <h3>Grooming Help</h3>
+        <p>Basic grooming to keep your pets looking adorable and feeling fresh.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message 🐾</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2026 Paws on the Go Pet Care. All rights reserved. 🐾
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Thank you! We'll get back to you soon. 🐶");
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
+    }
+  </script>
+
+</body>
+</html>
